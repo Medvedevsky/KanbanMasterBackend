@@ -1,7 +1,9 @@
+using KanbanMaster.Data.Data;
+using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
 
-var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 logger.Debug("init main");
 
 try
@@ -9,10 +11,16 @@ try
     var builder = WebApplication.CreateBuilder(args);
 
     // Add services to the container.
+    
+    builder.Services.AddDbContext<AppDbContext>(options =>
+            options.UseSqlServer(
+                builder.Configuration.GetConnectionString("DefaultConnection")
+    ));
 
     builder.Services.AddControllers();
-    builder.Logging.ClearProviders();
+    //builder.Logging.ClearProviders();
     builder.Host.UseNLog();
+
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
@@ -31,7 +39,10 @@ try
 
     //app.UseAuthorization();
 
-    app.UseEndpoints(endpoints => endpoints.MapControllers());
+    app.UseEndpoints
+    (
+        endpoints => endpoints.MapControllers()
+    );
 
 
     app.Run();
