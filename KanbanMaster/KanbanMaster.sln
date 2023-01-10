@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KanbanMaster", "KanbanMaster\KanbanMaster.csproj", "{84347C6E-0507-43FB-B814-5142EC482D39}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KanbanMaster.DataLayer", "KanbanMaster.Data\KanbanMaster.DataLayer.csproj", "{B0CDE6F3-A197-4C79-8E82-199E379587CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KanbanMaster.DataLayer", "KanbanMaster.DataLayer\KanbanMaster.DataLayer.csproj", "{B0CDE6F3-A197-4C79-8E82-199E379587CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
