@@ -14,5 +14,21 @@ namespace KanbanMaster.DataLayer.Data
         public DbSet<KanbanColumn> KanbanColumn { get; set; }
         public DbSet<KanbanCard> KanbanCard { get; set; }
         public DbSet<CardFile> CardFile { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            #region Relationships One to one (User : KanbanUser)
+
+            modelBuilder.Entity<User>()
+                .HasOne(b => b.KanbanUser)
+                .WithOne(i => i.User)
+                .HasForeignKey<KanbanUser>(b => b.UserForeignKeyId);
+
+            modelBuilder.Entity<KanbanUser>()
+                .Property(a => a.KanbanUserId)
+                .ValueGeneratedNever();
+
+            #endregion
+        }
     }
 }

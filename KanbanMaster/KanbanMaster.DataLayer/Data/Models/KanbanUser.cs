@@ -6,6 +6,7 @@
         public string Nickname { get; set; } = string.Empty;
 
         // Relationships 1:1
+        public int UserForeignKeyId { get; set; }
         public User User { get; set; } = null!;
     }
 }
