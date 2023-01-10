@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KanbanMaster.Data\KanbanMaster.Data.csproj" />
+    <ProjectReference Include="..\KanbanMaster.Data\KanbanMaster.DataLayer.csproj" />
   </ItemGroup>
 
 </Project>
